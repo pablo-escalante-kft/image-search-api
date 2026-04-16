@@ -4,6 +4,7 @@ from transformers import CLIPProcessor, CLIPModel
 from PIL import Image
 from pinecone import Pinecone
 import requests, io, torch
+import os
 
 app = FastAPI()
 
@@ -19,7 +20,7 @@ model = CLIPModel.from_pretrained("openai/clip-vit-base-patch32")
 processor = CLIPProcessor.from_pretrained("openai/clip-vit-base-patch32")
 print("CLIP model loaded.")
 
-PINECONE_API_KEY = "TU_PINECONE_API_KEY_AQUI"
+PINECONE_API_KEY = os.environ.get("PINECONE_API_KEY")
 pc = Pinecone(api_key=PINECONE_API_KEY)
 index = pc.Index("productos-catalogo")
 
