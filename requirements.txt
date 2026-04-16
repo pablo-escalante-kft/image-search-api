@@ -1,0 +1,8 @@
+fastapi
+uvicorn
+transformers
+Pillow
+requests
+pinecone-client
+torch
+python-multipart
